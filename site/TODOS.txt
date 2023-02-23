@@ -1,0 +1,3 @@
+ - figure out something for selecting dates
+   - could keep as is, and add a departure date calendar
+   - or figure out https://vcalendar.io/installation.html
