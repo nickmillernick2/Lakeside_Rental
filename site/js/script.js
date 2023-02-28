@@ -73,11 +73,63 @@ function lazyInit( element, func ) {
 	$window.on( 'scroll', scrollHandler );
 }
 
+//var reservation1 = ["","","","",""]
+
+class Reservation {
+	constructor(name, email, phone, arrive, depart){
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.arrive = arrive;
+		this.depart = depart;
+	}
+}
+
+var reservations = new Array(0)
+
 function makeReservation(){
-	alert(document.getElementById("customerName").value + "\n"  + 
-	document.getElementById("customerEmail").value + "\n"  + 
-	document.getElementById("customerPhone").value+ "\n"  +"\n"  + 
-	document.getElementById("dateForm").value);
+	var name = document.getElementById("customerName").value
+	var email = document.getElementById("customerEmail").value
+	var phoneNumber= document.getElementById("customerPhone").value
+	var arrivalDate = document.getElementById("arrivalDate").value
+	var departureDate = document.getElementById("departureDate").value 
+
+	var reservationToSave = new Reservation(name, email, phoneNumber, arrivalDate, departureDate)
+
+	if(datesAreValid(reservationToSave)){
+		saveToDB(reservationToSave)
+	}
+
+
+}
+
+function datesAreValid(reservationToSave){
+	for (let i = 0; i < reservations.length; i++) {
+		var newArriveBeforeOldDeparts = reservationToSave.arrive < reservations[i].depart
+		var newDepartsAfterOldArrives = reservationToSave.depart > reservations[i].arrive
+		var newArriveAfterOldArrives = reservationToSave.arrive >= reservations[i].arrive
+		var newDepartsBeforeOldDeparts = reservationToSave.depart <= reservations[i].depart
+
+		var newSurroundsOld = reservationToSave.arrive < reservations[i] 
+			&& reservationToSave.depart > reservations[i].depart
+
+		var invalidArrival = newArriveBeforeOldDeparts && newArriveAfterOldArrives
+		var invalidDepart = newDepartsAfterOldArrives && newDepartsBeforeOldDeparts
+
+		if(invalidArrival || invalidDepart || newSurroundsOld){
+			alert("arriving & departing: \n " + reservationToSave.arrive + ", " + reservationToSave.depart + 
+			" \n conflicts with exisitng arrival & departure: \n" 
+			+ reservations[i].arrive + " ," + reservations[i].depart)
+			return false
+		}
+	}
+
+	return true
+}
+
+function saveToDB(reservationToSave){
+	alert("Reservation saved for " + reservationToSave.name + ", "  + reservationToSave.email + ", "  + reservationToSave.phone + "\n"  +"\n"  + reservationToSave.arrive + "\n"  + reservationToSave.depart);
+	reservations.push(reservationToSave)
 }
 
 /**
