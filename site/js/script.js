@@ -76,12 +76,13 @@ function lazyInit( element, func ) {
 //var reservation1 = ["","","","",""]
 
 class Reservation {
-	constructor(name, email, phone, arrive, depart){
+	constructor(name, email, phone, arrive, depart, message){
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
 		this.arrive = arrive;
 		this.depart = depart;
+		this.message = message;
 	}
 }
 
@@ -93,11 +94,14 @@ function makeReservation(){
 	var phoneNumber= document.getElementById("customerPhone").value
 	var arrivalDate = document.getElementById("arrivalDate").value
 	var departureDate = document.getElementById("departureDate").value 
+	var message = document.getElementById("userMessage").value 
 
-	var reservationToSave = new Reservation(name, email, phoneNumber, arrivalDate, departureDate)
+
+	var reservationToSave = new Reservation(name, email, phoneNumber, arrivalDate, departureDate, message)
 
 	if(datesAreValid(reservationToSave)){
 		saveToDB(reservationToSave)
+		sendEmail(reservationToSave)
 	}
 
 
@@ -131,6 +135,27 @@ function saveToDB(reservationToSave){
 	alert("Reservation saved for " + reservationToSave.name + ", "  + reservationToSave.email + ", "  + reservationToSave.phone + "\n"  +"\n"  + reservationToSave.arrive + "\n"  + reservationToSave.depart);
 	reservations.push(reservationToSave)
 }
+
+function sendEmail(reservationToSave) {
+	alert("dsfsdflly")
+
+	Email.send({
+	  Host: "smtp.elasticemail.com",
+	  Username: "nickmiller.7875@gmail.com",
+	  Password: "82216762510BA274D4CE4CD580BA873CEA1D",
+	  Port:"2525",
+	  To: 'lilmiller23@gmail.com',
+	  From: "nickmiller.7875@gmail.com",
+	  Subject: "Lakeside Reservation " + reservationToSave.arrive + " to " + reservationToSave.depart,
+	  Body: reservationToSave.name +" has booked from " + reservationToSave.arrive + " to " + reservationToSave.depart + "\n" +
+	  "Message: \n " + reservationToSave.message +"\n"+
+	  "Phone Number: " + reservationToSave.phone+"\n"+
+	  "Email: " + reservationToSave.email,
+	})
+	  .then(function (message) {
+		alert("mail sent successfully" + message)
+	  });
+  }
 
 /**
  * Initialize All Scripts
