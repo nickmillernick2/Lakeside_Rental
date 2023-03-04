@@ -163,22 +163,22 @@ function saveToDB(reservationToSave){
 }
 
 function sendEmail(reservationToSave) {
-	Email.send({
-	  Host: "smtp.elasticemail.com",
-	  Username: "nickmiller.7875@gmail.com",
-	  Password: "82216762510BA274D4CE4CD580BA873CEA1D",
-	  Port:"2525",
-	  To: 'lilmiller23@gmail.com',
-	  From: "nickmiller.7875@gmail.com",
-	  Subject: "Lakeside Reservation " + reservationToSave.arrive + " to " + reservationToSave.depart,
-	  Body: reservationToSave.name +" has booked from " + reservationToSave.arrive + " to " + reservationToSave.depart + "\n" +
-	  "Message: \n " + reservationToSave.message +"\n"+
-	  "Phone Number: " + reservationToSave.phone+"\n"+
-	  "Email: " + reservationToSave.email,
-	})
-	  .then(function (message) {
-		alert("mail sent successfully" + message)
-	  });
+	// Email.send({
+	//   Host: "smtp.elasticemail.com",
+	//   Username: "nickmiller.7875@gmail.com",
+	//   Password: "82216762510BA274D4CE4CD580BA873CEA1D",
+	//   Port:"2525",
+	//   To: 'lilmiller23@gmail.com',
+	//   From: "nickmiller.7875@gmail.com",
+	//   Subject: "Lakeside Reservation " + reservationToSave.arrive + " to " + reservationToSave.depart,
+	//   Body: reservationToSave.name +" has booked from " + reservationToSave.arrive + " to " + reservationToSave.depart + "\n" +
+	//   "Message: \n " + reservationToSave.message +"\n"+
+	//   "Phone Number: " + reservationToSave.phone+"\n"+
+	//   "Email: " + reservationToSave.email,
+	// })
+	//   .then(function (message) {
+	// 	alert("mail sent successfully" + message)
+	//   });
   }
 
 /**
