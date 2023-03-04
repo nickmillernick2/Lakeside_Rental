@@ -220,7 +220,7 @@
             <div  class="form-request form-request-modern bg-gray-lighter novi-background">
               <p class = "h6 text-center mb-5">To make a reservation or inquiry, please fill out the form below:</p>
               <form class="rd-mailform form-fix">
-                <div class="row row-50">
+                <div class="row">
                   <div class="col-sm-12 col-lg-6">
                       <label class="form-label-outside">Enter Your Name: </label>
                       <div class="form-wrap form-wrap-inline">
@@ -233,28 +233,37 @@
                         <input class="form-input input-append" id="customerPhone" placeholder="Phone Number">
                       </div>
                   </div>
+                  <div class="col-sm-12 col-lg-6">
+                    <label class="form-label-outside">Enter Your Email: </label>
+                    <div class="form-wrap form-wrap-inline">
+                      <input class="form-input input-append" id="customerEmail" placeholder="Email Address" required>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <label class="form-label-outside">Enter Your Subject: </label>
+                    <div class="form-wrap form-wrap-inline">
+                      <input class="form-input input-append" id="userMessageSubject" placeholder="Subject">
+                    </div>
+                </div>
                   <div class="col-sm-12">
-                      <label class="form-label-outside">Enter Your Email: </label>
-                      <div class="form-wrap form-wrap-inline">
-                        <input class="form-input input-append" id="customerEmail" placeholder="Email Address">
-                      </div>
                       <label class="form-label-outside">Enter Your Message: </label>
                       <div class="form-wrap form-wrap-inline">
-                        <input class="form-input input-append" id="userMessage" placeholder="Message">
+                        <!-- <input class="form-input form-input-message input-append" id="userMessage" placeholder="Message"> -->
+                        <textarea class="form-input form-input-message input-append" name="userMessage" id="userMessage"  placeholder="Message" cols="40" rows="5"></textarea>
                       </div>
+                  </div>
+                  <div class="col-sm-12 col-lg-6">
+                    <label class="form-label-outside">Arrival Date</label>
+                    <div class="form-wrap form-wrap-validation">
+                      <input class="form-input input-append" type="date" id="arrivalDate" name="arrivalDate">
                     </div>
-                    <div class="col-sm-12 col-lg-6">
-                      <label class="form-label-outside">Arrival Date</label>
-                      <div class="form-wrap form-wrap-validation">
-                        <input class="form-input input-append" type="date" id="arrivalDate" name="arrivalDate">
-                      </div>
-                    </div>  
-                    <div class="col-sm-12 col-lg-6">
-                      <label class="form-label-outside">Departure Date</label>
-                      <div class="form-wrap form-wrap-modern">
-                        <input class="form-input input-append" type="date" id="departureDate" name="departureDate">
-                      </div>
+                  </div>  
+                  <div class="col-sm-12 col-lg-6">
+                    <label class="form-label-outside">Departure Date</label>
+                    <div class="form-wrap form-wrap-modern">
+                      <input class="form-input input-append" type="date" id="departureDate" name="departureDate">
                     </div>
+                  </div>
                 </div>
                 
                 <div class="form-wrap form-button justify-content-sm-center">
