@@ -90,13 +90,14 @@ function onClick(element) {
   }
 
 class Reservation {
-	constructor(name, email, phone, arrive, depart, message){
+	constructor(name, email, phone, arrive, depart, message, subject){
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
 		this.arrive = arrive;
 		this.depart = depart;
 		this.message = message;
+		this.subject = subject;
 	}
 }
 
@@ -145,21 +146,11 @@ function datesAreValid(reservationToSave){
 	return true
 }
 
+
+
 function saveToDB(reservationToSave){
 	alert("Reservation saved for " + reservationToSave.name + ", "  + reservationToSave.email + ", "  + reservationToSave.phone + "\n"  +"\n"  + reservationToSave.arrive + "\n"  + reservationToSave.depart);
 	reservations.push(reservationToSave)
-
-
-	// con.connect(function(err) {
-	// 	if (err) throw err;
-	// 	console.log("Connected!");
-	// 	var sql = "INSERT INTO reservations (name, email, phone, message, arrive, depart) VALUES ('"+ reservationToSave.name + "', '"+ reservationToSave.email + "', '"+ reservationToSave.phone+ "', '"+ reservationToSave.message + "', '"+ reservationToSave.arrive+ "', '"+reservationToSave.depart +"')";
-	// 	con.query(sql, function (err, result) {
-	// 	  if (err) throw err;
-	// 	  console.log("1 record inserted");
-	// 	});
-	// });
-
 }
 
 function sendEmail(reservationToSave) {
