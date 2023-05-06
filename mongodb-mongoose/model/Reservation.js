@@ -12,5 +12,5 @@ const reservationSchema = new Schema({
   subject: String,
 });
 
-const Reservation = model('ReservationsDev', reservationSchema);
+const Reservation = model('Reservations', reservationSchema);
 export default Reservation;

@@ -1,13 +1,13 @@
 import mongoose from 'mongoose' 
 import Query from 'mysql/lib/protocol/sequences/Query.js';
-import Reservations from './model/ReservationDev.js';
+import Reservations from './model/Reservation.js';
 
 
-mongoose.connect("mongodb+srv://nickmiller7875:gGdckHV9mNz8aUDH@cluster0.gaxwh6s.mongodb.net/Lakeside?retryWrites=true&w=majority") 
+mongoose.connect(process.env.MONGODB_URI) 
 
 /// Create a new blog post object
 const res = new Reservations({
-	name: 'Nick Miller Dev2',
+	name: 'Nick Miller Proddd',
 	email: 'nickmiller.7875@gmail.com',
 	valid: true,
 	phone: '3306055901',
@@ -21,6 +21,6 @@ const res = new Reservations({
 await res.save();
 
 
-const devRevs = await Reservations.where("name").equals("Nick Miller Dev");
+const devRevs = await Reservations.where("name").equals("Nick Miller Prod");
 console.log(devRevs);
 

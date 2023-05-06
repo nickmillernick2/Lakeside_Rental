@@ -2,10 +2,11 @@
   "name": "mongodb-mongoose",
   "version": "1.0.0",
   "description": "",
-  "main": "indexDev.js",
+  "main": "script.js",
   "scripts": {
     "dev": "nodemon indexDev.js",
-    "test": "nodemon indexTest.js"
+    "test": "nodemon indexTest.js",
+    "prod": "nodemon indexPROD.js"
   },
   "type": "module",
   "keywords": [],

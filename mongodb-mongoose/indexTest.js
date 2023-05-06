@@ -1,6 +1,6 @@
 import mongoose from 'mongoose' 
 import Query from 'mysql/lib/protocol/sequences/Query.js';
-import Reservations from './model/ReservationTest.js';
+import Reservations from './model/Reservation.js';
 
 
 mongoose.connect("mongodb+srv://nickmiller7875:gGdckHV9mNz8aUDH@cluster0.gaxwh6s.mongodb.net/Lakeside?retryWrites=true&w=majority") 
