@@ -7,7 +7,7 @@
     "dev": "nodemon indexDev.js",
     "test": "nodemon indexTest.js",
     "prod": "nodemon indexPROD.js",
-    "start": "nodemon indexPROD.js"
+    "start": "node server.js"
   },
   "type": "module",
   "keywords": [],
