@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon indexDev.js",
     "test": "nodemon indexTest.js",
-    "prod": "nodemon indexPROD.js"
+    "prod": "nodemon indexPROD.js",
+    "start": "nodemon indexPROD.js"
   },
   "type": "module",
   "keywords": [],
