@@ -1,15 +1,15 @@
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-
-const express = require('express');
+import express from 'express';
+import path from 'path';
 
 const app = express();
+const publicPath = path.join(__dirname, 'public');
+
+app.use(express.static(publicPath));
 
 app.get('/', (req, res) => {
-  res.sendFile('index.html')
+  res.sendFile('index.html', { root: publicPath });
 });
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+app.listen(3000, () => {
+  console.log('Server is listening on port 3000');
 });
