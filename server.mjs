@@ -7,6 +7,7 @@ const __dirname = path.dirname(__filename);
 
 const publicPath = path.join(__dirname, 'public');
 
+const app = express();
 
 app.use(express.static(publicPath));
 
