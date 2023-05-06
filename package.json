@@ -14,10 +14,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "esm": "^3.2.25",
     "mongoose": "^7.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.21",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "nodemon": "^2.0.21"
   }
 }
