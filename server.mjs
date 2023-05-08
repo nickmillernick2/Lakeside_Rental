@@ -19,3 +19,13 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
+
+
+app.post('/email', (req, res) => {
+  const { name, email, message } = req.body;
+  console.log(`Name: ${name}, Email: ${email}, Message: ${message}`);
+
+  // Send email using nodemailer module
+
+  res.send('Email sent successfully');
+});
