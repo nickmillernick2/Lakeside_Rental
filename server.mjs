@@ -45,7 +45,7 @@ app.post('/send-email', (req, res) => {
     `
   }
 
-  mg.messages().create(data, (error, body) => {
+  mg.messages().send(data, (error, body) => {
     if (error) {
       console.error(error)
       res.send('error')
