@@ -34,7 +34,7 @@ app.post('/send-email', (req, res) => {
     to: 'lilmiller23@gmail.com',
     subject: 'New message from your website!',
     text: `
-      Name: ${customerName}
+      Name: ${"fake name"}
       Email: ${customerEmail}
       Message: ${userMessage}
     `
