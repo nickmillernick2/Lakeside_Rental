@@ -26,7 +26,7 @@ import mailgun from 'mailgun-js'
 const mg = mailgun({apiKey: process.env.MAILGUN_API_KEY, domain: process.env.MAILGUN_DOMAIN})
 
 app.post('/send-email', (req, res) => {
-  const { customerName, customerEmail, customerPhone, userMessageSubject, 
+  const {customerEmail, customerPhone, userMessageSubject, 
     userMessage, arrivalDate, departureDate } = req.body
 
   const data = {
