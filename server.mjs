@@ -31,7 +31,7 @@ const mg = mailgun({apiKey: process.env.MAILGUN_API_KEY, domain: process.env.MAI
 app.post('/send-email', (req, res) => {
   console.log(req.body)
 
-  const {customerEmail, customerPhone, userMessageSubject, 
+  const {customerName, customerEmail, customerPhone, userMessageSubject, 
     userMessage, arrivalDate, departureDate } = req.body
 
   const data = {
@@ -39,7 +39,7 @@ app.post('/send-email', (req, res) => {
     to: 'lilmiller23@gmail.com',
     subject: 'New message from your website!',
     text: `
-      Name: ${"fake name"}
+      Name: ${customerName}
       Email: ${customerEmail}
       Message: ${userMessage}
     `
