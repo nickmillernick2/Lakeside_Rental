@@ -21,11 +21,32 @@ app.listen(port, () => {
 });
 
 
-app.post('/email', (req, res) => {
-  const { name, email, message } = req.body;
-  console.log(`Name: ${name}, Email: ${email}, Message: ${message}`);
+import mailgun from 'mailgun-js'
 
-  // Send email using nodemailer module
+const mg = mailgun({apiKey: process.env.MAILGUN_API_KEY, domain: process.env.MAILGUN_DOMAIN})
 
-  res.send('Email sent successfully');
-});
+app.post('/send-email', (req, res) => {
+  const { customerName, customerEmail, customerPhone, userMessageSubject, 
+    userMessage, arrivalDate, departureDate } = req.body
+
+  const data = {
+    from: `Your Name <you@${process.env.MAILGUN_DOMAIN}>`,
+    to: 'lilmiller23@gmail.com',
+    subject: 'New message from your website!',
+    text: `
+      Name: ${customerName}
+      Email: ${customerEmail}
+      Message: ${userMessage}
+    `
+  }
+
+  mg.messages().send(data, (error, body) => {
+    if (error) {
+      console.error(error)
+      res.send('error')
+    } else {
+      console.log(body)
+      res.send('success')
+    }
+  })
+})

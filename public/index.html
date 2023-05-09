@@ -220,7 +220,7 @@
         <div class="container container-bigger form-request-wrap form-request-wrap-modern">
             <div  class="form-request form-request-modern bg-gray-lighter novi-background">
               <p class = "h6 text-center mb-5">To make a reservation or inquiry, please fill out the form below:</p>
-              <form class="rd-mailform form-fix">
+              <form action="/send-email" method="POST" class="rd-mailform form-fix">
                 <div class="row">
                   <div class="col-sm-12 col-lg-6">
                       <label class="form-label-outside">Enter Your Name: </label>
@@ -268,7 +268,7 @@
                 </div>
                 
                 <div class="form-wrap form-button justify-content-sm-center">
-                    <button class="button button-block button-secondary" type="submit" onclick="makeReservation()">Submit</button>
+                    <button class="button button-block button-secondary" type="submit">Submit</button>
                   </div>
               </form>
             </div>  
