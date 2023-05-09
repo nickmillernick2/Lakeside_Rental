@@ -22,7 +22,10 @@ app.listen(port, () => {
 
 
 import mailgun from 'mailgun-js'
+import bodyParser from 'body-parser';
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 const mg = mailgun({apiKey: process.env.MAILGUN_API_KEY, domain: process.env.MAILGUN_DOMAIN})
 
 app.post('/send-email', (req, res) => {
