@@ -35,7 +35,7 @@ app.post('/send-email', (req, res) => {
     userMessage, arrivalDate, departureDate } = req.body
 
   const data = {
-    from: `Your Name <you@${process.env.MAILGUN_DOMAIN}>`,
+    from: `Your Name <mailgun@${process.env.MAILGUN_DOMAIN}>`,
     to: 'lilmiller23@gmail.com',
     subject: 'New message from your website!',
     text: `
@@ -45,7 +45,7 @@ app.post('/send-email', (req, res) => {
     `
   }
 
-  mg.messages().send(data, (error, body) => {
+  mg.messages().create(data, (error, body) => {
     if (error) {
       console.error(error)
       res.send('error')
