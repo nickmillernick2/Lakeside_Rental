@@ -1,18 +1,13 @@
-#gallery {
-	line-height:0;
-	-webkit-column-count:3; /* split it into 5 columns */
-	-webkit-column-gap:10px; /* give it a 5px gap between columns */
-	-moz-column-count:3;
-	-moz-column-gap:10px;
-	column-count:3;
-	column-gap:10px;
- }
-
- #gallery img {
-	width: 100% !important;
-	height: auto !important;
-	margin-bottom:10px; /* to match column gap */
- }
+ #gallery {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+  }
+  
+  #gallery img {
+	flex: 0 0 33.33%;
+	margin-bottom: 10px;
+  }
 
  #gallery img:hover {
 	filter:grayscale(100%);
