@@ -37,7 +37,7 @@ app.post('/send-email', (req, res) => {
   const data = {
     from: `Your Name <mailgun@${process.env.MAILGUN_DOMAIN}>`,
     to: 'lilmiller23@gmail.com',
-    subject: 'New message from your website!',
+    subject: '${userMessageSubject}',
     text: `
       Name: ${customerName}
       Email: ${customerEmail}
